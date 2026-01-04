@@ -1,6 +1,7 @@
 master*
 external_secret_key*
 secret_key*
+credentials.yml.enc
 Finance_Tracker/messages/config/master.key
 Finance_Tracker/messages/config/external_secret_key.rb
 Finance_Tracker/backend/Auth/secret_key.py

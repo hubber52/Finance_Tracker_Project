@@ -150,7 +150,7 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': True,  # Optional: Rotate refresh tokens on use
     'BLACKLIST_AFTER_ROTATION': True, # Optional: Blacklist old refresh tokens
     'ALGORITHM': 'HS256',
-    'SIGNING_KEY': 'admin', # Replace with a strong, unique key
+    'SIGNING_KEY': 'admin', 
     'AUTH_HEADER_TYPES': ('Bearer',),
     'USER_ID_FIELD': 'id',
     'USER_ID_CLAIM': 'user_id',
