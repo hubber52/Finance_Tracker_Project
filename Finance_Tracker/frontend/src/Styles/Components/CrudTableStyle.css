@@ -1,0 +1,199 @@
+.main-content{
+  background: transparent;
+  color: var(--text);
+  min-height: 60vh;
+  box-sizing: border-box;
+}
+
+/* Table base */
+.crud-table{
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin: 20px 0;
+  table-layout: auto;
+}
+
+/* Header styles */
+.crud-table thead{
+  background: linear-gradient(180deg, #ffffff, #f3f6f9);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.crud-table thead th{
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(15,23,42,0.06);
+  vertical-align: middle;
+}
+
+/* Body rows and cells */
+.crud-table tbody tr{
+  border-bottom: 1px solid rgba(15,23,42,0.04);
+  background: transparent;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.crud-table tbody tr:last-child{
+  border-bottom: 0;
+}
+
+.crud-table tbody tr:hover{
+  background: rgba(13,110,253,0.04);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.crud-table td{
+  padding: 12px 16px;
+  vertical-align: middle;
+  color: var(--muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Actions column buttons */
+.crud-table button{
+  appearance: none;
+  border: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
+}
+
+/* Edit button style */
+.crud-table button[onclick^="handleEditForm"],
+.crud-table button:has(+[onclick^="handleEditForm"]) /* fallback for styling semantics */{
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(13,110,253,0.12);
+}
+
+.crud-table button[onclick^="handleEditForm"]:hover{
+  background: var(--accent);
+  color: var(--accent-contrast);
+  box-shadow: 0 6px 14px rgba(13,110,253,0.12);
+  transform: translateY(-2px);
+}
+
+/* Delete button style */
+.crud-table button[onclick^="handleDelete"],
+.crud-table button:has(+[onclick^="handleDelete"]){
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid rgba(239,68,68,0.10);
+}
+
+.crud-table button[onclick^="handleDelete"]:hover{
+  background: var(--danger);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(239,68,68,0.12);
+  transform: translateY(-2px);
+}
+
+/* If you prefer class-based action buttons, add .edit-btn and .delete-btn */
+.crud-table .edit-btn{ color: var(--accent); border: 1px solid rgba(13,110,253,0.12); background: transparent; }
+.crud-table .delete-btn{ color: var(--danger); border: 1px solid rgba(239,68,68,0.10); background: transparent; }
+.crud-table .edit-btn:hover{ background: var(--accent); color: var(--accent-contrast); }
+.crud-table .delete-btn:hover{ background: var(--danger); color: #fff; }
+
+/* Form styles for edit/create */
+.crudForm{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--gap);
+  margin: 20px 0;
+  padding: 18px;
+  background: #fff;
+  border-radius: calc(var(--radius) - 2px);
+  box-shadow: var(--shadow-md);
+  align-items: start;
+  box-sizing: border-box;
+}
+
+/* Label and input group */
+.crudForm label{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+/* Inputs, selects */
+.crudForm input[type="text"],
+.crudForm input[type="number"],
+.crudForm select{
+  padding: 10px 12px;
+  border: 1px solid rgba(15,23,42,0.08);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: #fff;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+/* Focus states */
+.crudForm input:focus,
+.crudForm select:focus{
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 6px 18px rgba(13,110,253,0.08);
+}
+
+/* Full-width single-column buttons row */
+.crudForm .form-actions{
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  margin-top: 4px;
+}
+
+/* Submit button */
+.crudFormSubmitButton{
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(13,110,253,0.12);
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+}
+
+/* Cancel or secondary button */
+.crudForm button:not(.crudFormSubmitButton){
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid rgba(15,23,42,0.06);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Button hover states */
+.crudFormSubmitButton:hover{ transform: translateY(-2px); opacity: 0.95; }
+.crudForm button:not(.crudFormSubmitButton):hover{ transform: translateY(-2px); background: rgba(15,23,42,0.03); }
+
+/* Accessibility: focus rings */
+.crudForm input:focus-visible,
+.crudForm select:focus-visible,
+.crudFormSubmitButton:focus-visible,
+.crudForm button:focus-visible,
+.crud-table button:focus-visible{
+  box-shadow: 0 0 0 4px rgba(13,110,253,0.12);
+  outline: none;
+}
+

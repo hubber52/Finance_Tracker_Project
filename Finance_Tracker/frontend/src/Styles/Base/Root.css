@@ -1,0 +1,14 @@
+:root{
+  --bg: #ffffff;
+  --nav-surface: #f7fafc;
+  --primary: #0f766e;
+  --primary-contrast: #ffffff;
+  --muted: #4b5563;
+  --accent: #06b6d4;
+  --shadow: 0 6px 18px rgba(2,6,23,0.06);
+  --radius: 10px;
+  --gap: 12px;
+  --nav-height: 64px;
+  --transition: 180ms cubic-bezier(.2,.8,.2,1);
+  font-size: 16px;
+}

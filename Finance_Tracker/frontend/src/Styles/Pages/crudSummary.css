@@ -1,0 +1,129 @@
+/* Table container styling */
+.crudTable {
+  width: 90%;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  font-family: sans-serif;
+}
+
+/* Table header */
+.crudTable th {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+/* Table cells */
+.crudTable td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Zebra stripes */
+.crudTable tbody tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+/* Row hover effect */
+.crudTable tbody tr:hover {
+  background-color: #eef5ff;
+}
+
+/* Buttons inside table rows */
+.crudTable button {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 0.25rem;
+  transition: background-color 0.2s ease;
+}
+
+/* Edit button styling */
+.crudTable button.edit {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.crudTable button.edit:hover {
+  background-color: #218838;
+}
+
+/* Delete button styling */
+.crudTable button.delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.crudTable button.delete:hover {
+  background-color: #c82333;
+}
+
+/* Form container styling */
+.crudForm {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Label and input pair */
+.crudForm label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.crudForm input {
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.crudForm input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* Submit and cancel buttons */
+.crudFormSubmitButton,
+.crudForm button.cancel {
+  margin-top: 1rem;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.crudFormSubmitButton {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.crudFormSubmitButton:hover {
+  background-color: #0056b3;
+}
+
+.crudForm button.cancel {
+  background-color: #6c757d;
+  color: #fff;
+  margin-left: 0.5rem;
+}
+
+.crudForm button.cancel:hover {
+  background-color: #5a6268;
+}

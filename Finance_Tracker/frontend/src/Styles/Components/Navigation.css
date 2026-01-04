@@ -1,0 +1,140 @@
+/* Container for the whole navigation area */
+.main-navigation-bar{
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+  padding: 0 1rem;
+  padding-top: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: lightblue;
+  background: var(--nav-surface, #ffffff); /* use solid color from variables */
+  background-image: none; /* remove any gradient */
+  backdrop-filter: none; /* remove blur/translucency effects */
+}
+
+/* Make the bootstrap Navbar container align with our layout */
+.main-navigation-bar .container-fluid{
+  padding: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+}
+
+/* Main nav links group */
+.main-navigation{
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Nav.Link base style */
+.main-navigation a,
+.main-navigation .nav-link{
+  display: inline-block;
+  padding: 10px 14px;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: color var(--transition), background-color var(--transition), transform var(--transition);
+  line-height: 1;
+}
+
+/* Active and hover styles */
+.main-navigation a:hover,
+.main-navigation .nav-link:hover,
+.main-navigation a:focus,
+.main-navigation .nav-link:focus{
+  background: rgba(37,99,235,0.08);
+  color: var(--accent);
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37,99,235,0.06);
+}
+
+/* Highlight the current/active page link */
+.main-navigation .active,
+.main-navigation a.active{
+  background: var(--primary);
+  color: var(--primary-contrast);
+  box-shadow: 0 6px 18px rgba(13,110,253,0.12);
+}
+
+/* Welcome name styling */
+.welcome-name{
+  margin: 0 0.5rem;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+  font-size: 0.95rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+
+  transition: color var(--transition), opacity var(--transition);
+}
+
+/* Logout button styling */
+.logout-button{
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 8px 12px;
+  background: transparent;
+  border-radius: 8px;
+  color: var(--accent);
+  transition: background-color var(--transition), color var(--transition), transform var(--transition);
+  margin-left: 8px;
+  box-shadow: none;
+}
+
+/* Primary style for logout when emphasized */
+.logout-button.primary{
+  background: var(--primary);
+  color: var(--primary-contrast);
+  box-shadow: 0 6px 14px rgba(13,110,253,0.12);
+}
+
+/* Hover and focus for button */
+.logout-button:hover,
+.logout-button:focus{
+  transform: translateY(-1px);
+  background: rgba(37,99,235,0.08);
+  color: var(--accent);
+  outline: none;
+}
+
+/* Danger variant for destructive logout emphasis */
+.logout-button.danger{
+  background: rgba(225,29,72,0.08);
+  color: var(--danger);
+}
+.logout-button.danger:hover,
+.logout-button.danger:focus{
+  background: var(--danger);
+  color: #fff;
+}
+
+/* Accessibility helpers */
+.main-navigation a:focus-visible,
+.logout-button:focus-visible{
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.18);
+  border-radius: 8px;
+}
+
+/* Small polish for right alignment when nav grows */
+.main-navigation-bar .container-fluid > .main-navigation{
+  flex: 1 1 auto;
+}
+
