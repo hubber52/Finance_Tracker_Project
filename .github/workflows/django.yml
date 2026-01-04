@@ -27,5 +27,5 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        cd ../../Finance_Tracker
+        cd ./Finance_Tracker
         python manage.py test
