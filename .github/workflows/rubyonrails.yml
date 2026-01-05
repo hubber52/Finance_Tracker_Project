@@ -12,7 +12,7 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          POSTGRES_USER: postgres
+          POSTGRES_USER: postgres987
           POSTGRES_PASSWORD: postgres
           POSTGRES_DATABASE: messages_test
         ports:
