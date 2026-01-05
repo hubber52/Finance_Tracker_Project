@@ -5,7 +5,6 @@ credentials.yml.enc
 Finance_Tracker/messages/config/master.key
 Finance_Tracker/messages/config/external_secret_key.rb
 Finance_Tracker/backend/Auth/secret_key.py
-Finance_Tracker/Finance_Tracker/settings.py
 Finance_Tracker/backend/Components/unused_kafka_registration.py
 Finance_Tracker/messages/app/controllers/api/unused_user_controller.rb
 Finance_Tracker/messages/app/models/user.rb

@@ -3,7 +3,7 @@ from ..Serials.debt_serializer import InDebtSerializer
 from ..Serials.serializer import CustomUserSerializer
 from rest_framework.response import Response
 from rest_framework import status
-from ..Auth.secret_key import SECRET_KEY
+from django.conf import settings
 from .kafka_messages import KafkaMessageService
 
 
@@ -32,7 +32,7 @@ class InDebtCheck:
                                               model_instance.negative_debt, 
                                               phone, 
                                               email, 
-                                              SECRET_KEY])
+                                              settings.SECRET_KEY])
 
                     except:
                         print("Failed to connect to Kafka")
@@ -46,7 +46,7 @@ class InDebtCheck:
                                               model_instance.negative_debt, 
                                               phone, 
                                               email, 
-                                              SECRET_KEY])
+                                              settings.SECRET_KEY])
                     except:
                         print("Failed to connect to Kafka")
             except:
