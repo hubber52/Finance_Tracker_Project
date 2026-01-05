@@ -66,38 +66,39 @@ function IncomeCreate(){
              <form className = "crudForm" onSubmit={incomePost}>
                 <label>
                 Name
-                <input
-                    type="text"
-                    name="income_name"
-                    value={createform.income_name}
-                    onChange={handleChange}
-                />
+                    <input
+                        type="text"
+                        name="income_name"
+                        value={createform.income_name}
+                        onChange={handleChange}
+                    />
                 </label>
                 <label>
                 Amount
-                <input
-                    type="number"
-                    name="income_amount"
-                    value={createform.income_amount}
-                    onChange={handleChange}
-                />
+                    <input
+                        type="number"
+                        name="income_amount"
+                        value={createform.income_amount}
+                        onChange={handleChange}
+                    />
                 </label>
                 <label>
                 Type
-                    <input type="text" 
-                    name="Income_type" 
-                    value={createform.income_type} 
-                    onChange={handleChange}>
-                    </input>
+                    <input 
+                        type="text"
+                        name="income_type"
+                        value={createform.income_type}
+                        onChange={handleChange}
+                    />
                 </label>
                 <label>
                 Notes
-                <input
-                    type="text"
-                    name="income_notes"
-                    value={createform.income_notes}
-                    onChange={handleChange}
-                />
+                    <input
+                        type="text"
+                        name="income_notes"
+                        value={createform.income_notes}
+                        onChange={handleChange}
+                    />
                 </label>
                 <label>
                 Rate
