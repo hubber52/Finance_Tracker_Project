@@ -36,11 +36,11 @@ jobs:
           bundler-cache: true
 
       # Node
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22.18.0
-          cache: yarn
+      #- name: Set up Node
+       # uses: actions/setup-node@v4
+        #with:
+         # node-version: 22.18.0
+          #cache: yarn
 
       # System deps
       - name: Install system dependencies
