@@ -12,8 +12,8 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          POSTGRES_USER: postgres987
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: admin
           POSTGRES_DATABASE: messages_test
         ports:
           - 5432:5432
@@ -25,9 +25,9 @@ jobs:
 
     env:
       RAILS_ENV: test
-      POSTGRES_USER: postgres4567
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DATABASE: messages_test
+      POSTGRES_DATABASE: admin
       DATABASE_URL: postgres://postgres:password@localhost:5432/messages_test
 
     steps:
@@ -62,8 +62,8 @@ jobs:
       # DB + tests
       - name: Run tests
         env:
-          POSTGRES_USER: postgres123
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: admin
           POSTGRES_DATABASE: messages_test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: |
