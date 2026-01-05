@@ -1,5 +1,5 @@
 class MessageInputsConsumer < ApplicationConsumer
-  require_relative "../../config/external_secret_key"
+  #require_relative "../../config/external_secret_key"
 
   #Kafka consumer from "Ruby_Message_Service topic"
   #Consume method reads from topic and saves to Postgres DB
@@ -13,8 +13,7 @@ class MessageInputsConsumer < ApplicationConsumer
         next
       end
 
-      puts "#{debt_data[0]["secret_key"]}"
-      if debt_data[4] == DjangoSecretKey::SECRET_KEY
+      if debt_data[4] == Rails.application.credentials.SECRET_KEY
         uuid = debt_data[0]
         message = debt_data[1]
         phone = debt_data[2]

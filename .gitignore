@@ -9,8 +9,6 @@ Finance_Tracker/backend/Components/unused_kafka_registration.py
 Finance_Tracker/messages/app/controllers/api/unused_user_controller.rb
 Finance_Tracker/messages/app/models/user.rb
 Finance_Tracker/messages/app/consumers/unused_user_registration_consumer.rb
-Finance_Tracker/kafka-4.1.0-src/tests/docker/
-docker/
 Finance_Tracker/kafka-4.1.0-src/
 secret*
 credentials*

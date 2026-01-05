@@ -1,4 +1,4 @@
-require_relative "../../config/external_secret_key"
+#require_relative "../../config/external_secret_key"
 
 class UserMailer < ApplicationMailer
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -6,7 +6,7 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.notification_mailer.subject
   #
-  default from: GoogleSecretKey::GOOGLE_EMAIL
+  default from: Rails.application.credentials.dig(:GOOGLE, :GOOGLE_EMAIL)
   def notification_mailer(email, message)
     @message = message
     @email = email

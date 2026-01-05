@@ -6926,3 +6926,723 @@ Content-Transfer-Encoding: 7bit
   [1m[36mTRANSACTION (1.8ms)[0m  [1m[31mROLLBACK[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+[ActiveJob] Enqueued EmailDebtMessageJob (Job ID: d8a74a86-8571-4a25-be75-b8a197738ae3) to Test(default)
+  [1m[36mActiveRecord::InternalMetadata Load (4.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.8ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "message_inputs" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (6.5ms)[0m  [1m[34m            SELECT schemaname || '.' || tablename
+            FROM pg_tables
+            WHERE
+              tablename !~ '_prt_' AND
+              tablename <> 'schema_migrations'
+  AND tablename <> 'ar_internal_metadata'
+ AND
+              schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (4.9ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'messages_test'[0m
+  [1m[35m (19.1ms)[0m  [1m[35mTRUNCATE TABLE "message_inputs", "users" RESTART IDENTITY restrict;[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "message_inputs" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+[waterdrop-2fbe0b3ab1b8] Sync producing of a message to 'Ruby_Message_Service' topic took 0.24 ms
+[waterdrop-2fbe0b3ab1b8] Sync producing of a message to 'Ruby_Message_Service' topic took 0.17 ms
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessageInput Count (4.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMessageInput Create (1.6ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:45:21.914582"], ["email", "[FILTERED]"], ["message", "True"], ["phone", "+12345678901"], ["sent", "False"], ["updated_at", "2026-01-05 02:45:21.914582"], ["uuid", "3bc54517-6309-485a-bc35-51c410484dc1"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Invalid Post Data: ["a13f8ec3-4573-48f8-8a9d-3319604bbaf2", "True", "+12345678901", "test@example.com", "Random Secret"]
+  [1m[36mMessageInput Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+[waterdrop-2fbe0b3ab1b8] Sync producing of a message to 'Ruby_Message_Service' topic took 0.13 ms
+[waterdrop-2fbe0b3ab1b8] Sync producing of a message to 'Ruby_Message_Service' topic took 0.11 ms
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessageInput Count (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMessageInput Create (0.4ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:45:21.925110"], ["email", "[FILTERED]"], ["message", "True"], ["phone", "+12345678901"], ["sent", "False"], ["updated_at", "2026-01-05 02:45:21.925110"], ["uuid", "3904170a-b2e7-4250-82f5-b9fe0b4b26b6"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Invalid Post Data: ["06648cbb-2dc2-4f0c-a7b4-2de80c13f195", "True", "+12345678901", "test@example.com", "Random Secret"]
+  [1m[36mMessageInput Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mMessageInput Create (1.1ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:45:21.934328"], ["email", "[FILTERED]"], ["message", "t"], ["phone", nil], ["sent", "False"], ["updated_at", "2026-01-05 02:45:21.934328"], ["uuid", "e69bfc4e-e0bb-4183-b25a-9d4b41e100e8"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [6422b69e-1ecc-4812-9182-8813764ea92e] Performing EmailDebtMessageJob (Job ID: 6422b69e-1ecc-4812-9182-8813764ea92e) from Test(default)
+[ActiveJob] [EmailDebtMessageJob] [6422b69e-1ecc-4812-9182-8813764ea92e]   [1m[36mMessageInput Load (0.4ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."sent" = $1[0m  [["sent", "False"]]
+[ActiveJob] [EmailDebtMessageJob] [6422b69e-1ecc-4812-9182-8813764ea92e] 3 False e69bfc4e-e0bb-4183-b25a-9d4b41e100e8 test@example.com, 
+
+[ActiveJob] [EmailDebtMessageJob] [6422b69e-1ecc-4812-9182-8813764ea92e]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [6422b69e-1ecc-4812-9182-8813764ea92e]   [1m[36mMessageInput Update (2.2ms)[0m  [1m[33mUPDATE "message_inputs" SET "sent" = $1, "updated_at" = $2 WHERE "message_inputs"."id" = $3[0m  [["sent", "True"], ["updated_at", "2026-01-05 02:45:21.938744"], ["id", 3]]
+[ActiveJob] [EmailDebtMessageJob] [6422b69e-1ecc-4812-9182-8813764ea92e]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [6422b69e-1ecc-4812-9182-8813764ea92e] Enqueued EmailDebtMessageJob (Job ID: 7cffdbed-daf6-498d-afcd-9a760ca4c99a) to Test(default) at 2026-01-05 02:45:26 UTC
+[ActiveJob] [EmailDebtMessageJob] [6422b69e-1ecc-4812-9182-8813764ea92e] Performed EmailDebtMessageJob (Job ID: 6422b69e-1ecc-4812-9182-8813764ea92e) from Test(default) in 6.6ms
+  [1m[36mMessageInput Load (0.2ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mMessageInput Create (0.9ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:45:21.948364"], ["email", "[FILTERED]"], ["message", "t"], ["phone", nil], ["sent", "True"], ["updated_at", "2026-01-05 02:45:21.948364"], ["uuid", "e1b5c118-6ccb-47cf-bba7-ae60e27012e1"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [3360438d-92a6-4e00-aa9e-42ae13d2b669] Performing EmailDebtMessageJob (Job ID: 3360438d-92a6-4e00-aa9e-42ae13d2b669) from Test(default)
+[ActiveJob] [EmailDebtMessageJob] [3360438d-92a6-4e00-aa9e-42ae13d2b669]   [1m[36mMessageInput Load (0.1ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."sent" = $1[0m  [["sent", "False"]]
+[ActiveJob] [EmailDebtMessageJob] [3360438d-92a6-4e00-aa9e-42ae13d2b669] Enqueued EmailDebtMessageJob (Job ID: a3a74676-9f80-4446-829c-d5e0f087eaca) to Test(default) at 2026-01-05 02:45:26 UTC
+[ActiveJob] [EmailDebtMessageJob] [3360438d-92a6-4e00-aa9e-42ae13d2b669] Performed EmailDebtMessageJob (Job ID: 3360438d-92a6-4e00-aa9e-42ae13d2b669) from Test(default) in 1.11ms
+  [1m[36mMessageInput Load (0.1ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/notification_mailer.html.erb within layouts/mailer
+  Rendered user_mailer/notification_mailer.html.erb within layouts/mailer (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/notification_mailer.text.erb within layouts/mailer
+  Rendered user_mailer/notification_mailer.text.erb within layouts/mailer (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/mailer.text.erb (Duration: 0.3ms | GC: 0.0ms)
+UserMailer#notification_mailer: processed outbound mail in 165.8ms
+Delivered mail 695b25c225bb5_4ecbd60-3ba@Dev3.mail (32.1ms)
+Date: Mon, 05 Jan 2026 02:45:22 +0000
+From: tommy.liang300@gmail.com
+To: testuser@example.com
+Message-ID: <695b25c225bb5_4ecbd60-3ba@Dev3.mail>
+Subject: Debt Status
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_695b25c21e56a_4ecbd60-416";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_695b25c21e56a_4ecbd60-416
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+User#notification_mailer
+
+You have a new debt notification., 
+
+find me in app/views/user_mailer/notification_mailer.text.erb
+
+
+----==_mimepart_695b25c21e56a_4ecbd60-416
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>User#notification_mailer</h1>
+
+<p>
+  You have a new debt notification.
+</p>
+
+<p>
+ find me in app/views/user_mailer/notification_mailer.html.erb
+</p>
+  </body>
+</html>
+
+----==_mimepart_695b25c21e56a_4ecbd60-416--
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+[ActiveJob] Enqueued EmailDebtMessageJob (Job ID: 967f3402-8c91-4adc-a781-d279a1ac8a8e) to Test(default)
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "message_inputs" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34m            SELECT schemaname || '.' || tablename
+            FROM pg_tables
+            WHERE
+              tablename !~ '_prt_' AND
+              tablename <> 'schema_migrations'
+  AND tablename <> 'ar_internal_metadata'
+ AND
+              schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (0.8ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'messages_test'[0m
+  [1m[35m (15.6ms)[0m  [1m[35mTRUNCATE TABLE "message_inputs", "users" RESTART IDENTITY restrict;[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "message_inputs" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+[waterdrop-d8738d863369] Sync producing of a message to 'Ruby_Message_Service' topic took 0.2 ms
+[waterdrop-d8738d863369] Sync producing of a message to 'Ruby_Message_Service' topic took 0.1 ms
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessageInput Count (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMessageInput Create (1.3ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:48:26.912170"], ["email", "[FILTERED]"], ["message", "True"], ["phone", "+12345678901"], ["sent", "False"], ["updated_at", "2026-01-05 02:48:26.912170"], ["uuid", "83e089ef-7558-4911-bd56-3ddf6aaa18a2"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Invalid Post Data: ["7e4f4e48-2451-469d-8318-7364b628384e", "True", "+12345678901", "test@example.com", "Random Secret"]
+  [1m[36mMessageInput Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+[waterdrop-d8738d863369] Sync producing of a message to 'Ruby_Message_Service' topic took 0.12 ms
+[waterdrop-d8738d863369] Sync producing of a message to 'Ruby_Message_Service' topic took 0.1 ms
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessageInput Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMessageInput Create (0.8ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:48:26.922245"], ["email", "[FILTERED]"], ["message", "True"], ["phone", "+12345678901"], ["sent", "False"], ["updated_at", "2026-01-05 02:48:26.922245"], ["uuid", "767881d5-3e5a-4eaa-8dc3-5f55fca1423e"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Invalid Post Data: ["1bc3286b-7c4c-4fe2-a396-2d8a5ffa4a09", "True", "+12345678901", "test@example.com", "Random Secret"]
+  [1m[36mMessageInput Count (3.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mMessageInput Create (4.0ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:48:26.937628"], ["email", "[FILTERED]"], ["message", "t"], ["phone", nil], ["sent", "False"], ["updated_at", "2026-01-05 02:48:26.937628"], ["uuid", "9c589642-9efe-40ab-baf2-4b5b3c12bfb2"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [36b5d66f-887d-434c-a4f9-0a80b03d1779] Performing EmailDebtMessageJob (Job ID: 36b5d66f-887d-434c-a4f9-0a80b03d1779) from Test(default)
+[ActiveJob] [EmailDebtMessageJob] [36b5d66f-887d-434c-a4f9-0a80b03d1779]   [1m[36mMessageInput Load (1.4ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."sent" = $1[0m  [["sent", "False"]]
+[ActiveJob] [EmailDebtMessageJob] [36b5d66f-887d-434c-a4f9-0a80b03d1779] 3 False 9c589642-9efe-40ab-baf2-4b5b3c12bfb2 test@example.com, 
+
+[ActiveJob] [EmailDebtMessageJob] [36b5d66f-887d-434c-a4f9-0a80b03d1779]   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [36b5d66f-887d-434c-a4f9-0a80b03d1779]   [1m[36mMessageInput Update (1.0ms)[0m  [1m[33mUPDATE "message_inputs" SET "sent" = $1, "updated_at" = $2 WHERE "message_inputs"."id" = $3[0m  [["sent", "True"], ["updated_at", "2026-01-05 02:48:26.948259"], ["id", 3]]
+[ActiveJob] [EmailDebtMessageJob] [36b5d66f-887d-434c-a4f9-0a80b03d1779]   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [36b5d66f-887d-434c-a4f9-0a80b03d1779] Enqueued EmailDebtMessageJob (Job ID: 5687d15c-5d08-4c81-87e6-6673d8dadb88) to Test(default) at 2026-01-05 02:48:31 UTC
+[ActiveJob] [EmailDebtMessageJob] [36b5d66f-887d-434c-a4f9-0a80b03d1779] Performed EmailDebtMessageJob (Job ID: 36b5d66f-887d-434c-a4f9-0a80b03d1779) from Test(default) in 8.62ms
+  [1m[36mMessageInput Load (0.9ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mMessageInput Create (1.3ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:48:26.959260"], ["email", "[FILTERED]"], ["message", "t"], ["phone", nil], ["sent", "True"], ["updated_at", "2026-01-05 02:48:26.959260"], ["uuid", "99178512-5081-4714-ba88-914fff30cf1f"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [bd37f984-cb22-439a-be44-87ddac74c675] Performing EmailDebtMessageJob (Job ID: bd37f984-cb22-439a-be44-87ddac74c675) from Test(default)
+[ActiveJob] [EmailDebtMessageJob] [bd37f984-cb22-439a-be44-87ddac74c675]   [1m[36mMessageInput Load (0.3ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."sent" = $1[0m  [["sent", "False"]]
+[ActiveJob] [EmailDebtMessageJob] [bd37f984-cb22-439a-be44-87ddac74c675] Enqueued EmailDebtMessageJob (Job ID: b67baf87-e297-465d-972d-35e1a736dd45) to Test(default) at 2026-01-05 02:48:31 UTC
+[ActiveJob] [EmailDebtMessageJob] [bd37f984-cb22-439a-be44-87ddac74c675] Performed EmailDebtMessageJob (Job ID: bd37f984-cb22-439a-be44-87ddac74c675) from Test(default) in 1.23ms
+  [1m[36mMessageInput Load (1.9ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/notification_mailer.html.erb within layouts/mailer
+  Rendered user_mailer/notification_mailer.html.erb within layouts/mailer (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/notification_mailer.text.erb within layouts/mailer
+  Rendered user_mailer/notification_mailer.text.erb within layouts/mailer (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/mailer.text.erb (Duration: 0.5ms | GC: 0.0ms)
+UserMailer#notification_mailer: processed outbound mail in 187.6ms
+Delivered mail 695b267b287e8_4f6bd6066639@Dev3.mail (4.1ms)
+Date: Mon, 05 Jan 2026 02:48:27 +0000
+From: tommy.liang300@gmail.com
+To: testuser@example.com
+Message-ID: <695b267b287e8_4f6bd6066639@Dev3.mail>
+Subject: Debt Status
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_695b267b27dc4_4f6bd6066539";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_695b267b27dc4_4f6bd6066539
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+User#notification_mailer
+
+You have a new debt notification., 
+
+find me in app/views/user_mailer/notification_mailer.text.erb
+
+
+----==_mimepart_695b267b27dc4_4f6bd6066539
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>User#notification_mailer</h1>
+
+<p>
+  You have a new debt notification.
+</p>
+
+<p>
+ find me in app/views/user_mailer/notification_mailer.html.erb
+</p>
+  </body>
+</html>
+
+----==_mimepart_695b267b27dc4_4f6bd6066539--
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+[ActiveJob] Enqueued EmailDebtMessageJob (Job ID: 02f080a5-dd8c-4842-9276-6cc6b75e84e5) to Test(default)
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "message_inputs" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[34m            SELECT schemaname || '.' || tablename
+            FROM pg_tables
+            WHERE
+              tablename !~ '_prt_' AND
+              tablename <> 'schema_migrations'
+  AND tablename <> 'ar_internal_metadata'
+ AND
+              schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (0.6ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'messages_test'[0m
+  [1m[35m (15.0ms)[0m  [1m[35mTRUNCATE TABLE "message_inputs", "users" RESTART IDENTITY restrict;[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "message_inputs" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+[waterdrop-26f30fd61c23] Sync producing of a message to 'Ruby_Message_Service' topic took 0.21 ms
+[waterdrop-26f30fd61c23] Sync producing of a message to 'Ruby_Message_Service' topic took 0.17 ms
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessageInput Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMessageInput Create (1.1ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:50:59.010723"], ["email", "[FILTERED]"], ["message", "True"], ["phone", "+12345678901"], ["sent", "False"], ["updated_at", "2026-01-05 02:50:59.010723"], ["uuid", "eff24143-7b48-4610-848e-c92e2ff16bf8"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Invalid Post Data: ["05963e12-e768-4f25-81a0-b4c8e184427f", "True", "+12345678901", "test@example.com", "Random Secret"]
+  [1m[36mMessageInput Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+[waterdrop-26f30fd61c23] Sync producing of a message to 'Ruby_Message_Service' topic took 0.27 ms
+[waterdrop-26f30fd61c23] Sync producing of a message to 'Ruby_Message_Service' topic took 0.09 ms
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessageInput Count (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMessageInput Create (0.8ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:50:59.020654"], ["email", "[FILTERED]"], ["message", "True"], ["phone", "+12345678901"], ["sent", "False"], ["updated_at", "2026-01-05 02:50:59.020654"], ["uuid", "45746186-5c65-40cc-93f6-8b6860e658da"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Invalid Post Data: ["a3fa2ae9-0949-463e-b983-049e34394138", "True", "+12345678901", "test@example.com", "Random Secret"]
+  [1m[36mMessageInput Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mMessageInput Create (1.6ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:50:59.062128"], ["email", "[FILTERED]"], ["message", "t"], ["phone", nil], ["sent", "False"], ["updated_at", "2026-01-05 02:50:59.062128"], ["uuid", "0ec04645-aadb-4fdf-b157-6d66d289b7b4"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [eedbbdd5-80cc-43fe-a741-c054f4ac5759] Performing EmailDebtMessageJob (Job ID: eedbbdd5-80cc-43fe-a741-c054f4ac5759) from Test(default)
+[ActiveJob] [EmailDebtMessageJob] [eedbbdd5-80cc-43fe-a741-c054f4ac5759]   [1m[36mMessageInput Load (1.1ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."sent" = $1[0m  [["sent", "False"]]
+[ActiveJob] [EmailDebtMessageJob] [eedbbdd5-80cc-43fe-a741-c054f4ac5759] 3 False 0ec04645-aadb-4fdf-b157-6d66d289b7b4 test@example.com, 
+
+[ActiveJob] [EmailDebtMessageJob] [eedbbdd5-80cc-43fe-a741-c054f4ac5759]   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [eedbbdd5-80cc-43fe-a741-c054f4ac5759]   [1m[36mMessageInput Update (0.8ms)[0m  [1m[33mUPDATE "message_inputs" SET "sent" = $1, "updated_at" = $2 WHERE "message_inputs"."id" = $3[0m  [["sent", "True"], ["updated_at", "2026-01-05 02:50:59.068136"], ["id", 3]]
+[ActiveJob] [EmailDebtMessageJob] [eedbbdd5-80cc-43fe-a741-c054f4ac5759]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [eedbbdd5-80cc-43fe-a741-c054f4ac5759] Enqueued EmailDebtMessageJob (Job ID: bbd135d1-3b50-4fb7-841b-fca7717c7bed) to Test(default) at 2026-01-05 02:51:04 UTC
+[ActiveJob] [EmailDebtMessageJob] [eedbbdd5-80cc-43fe-a741-c054f4ac5759] Performed EmailDebtMessageJob (Job ID: eedbbdd5-80cc-43fe-a741-c054f4ac5759) from Test(default) in 6.07ms
+  [1m[36mMessageInput Load (0.9ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mMessageInput Create (1.5ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:50:59.078438"], ["email", "[FILTERED]"], ["message", "t"], ["phone", nil], ["sent", "True"], ["updated_at", "2026-01-05 02:50:59.078438"], ["uuid", "5579c3ea-3f16-4077-84c9-95dc2b1bf0a8"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [89d08a5b-e5bd-408a-b560-04bdb66e0d8c] Performing EmailDebtMessageJob (Job ID: 89d08a5b-e5bd-408a-b560-04bdb66e0d8c) from Test(default)
+[ActiveJob] [EmailDebtMessageJob] [89d08a5b-e5bd-408a-b560-04bdb66e0d8c]   [1m[36mMessageInput Load (0.4ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."sent" = $1[0m  [["sent", "False"]]
+[ActiveJob] [EmailDebtMessageJob] [89d08a5b-e5bd-408a-b560-04bdb66e0d8c] Enqueued EmailDebtMessageJob (Job ID: 0e3013df-9cf4-42c4-920d-a28dd956c7c3) to Test(default) at 2026-01-05 02:51:04 UTC
+[ActiveJob] [EmailDebtMessageJob] [89d08a5b-e5bd-408a-b560-04bdb66e0d8c] Performed EmailDebtMessageJob (Job ID: 89d08a5b-e5bd-408a-b560-04bdb66e0d8c) from Test(default) in 1.13ms
+  [1m[36mMessageInput Load (1.3ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/notification_mailer.html.erb within layouts/mailer
+  Rendered user_mailer/notification_mailer.html.erb within layouts/mailer (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/notification_mailer.text.erb within layouts/mailer
+  Rendered user_mailer/notification_mailer.text.erb within layouts/mailer (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/mailer.text.erb (Duration: 0.3ms | GC: 0.0ms)
+UserMailer#notification_mailer: processed outbound mail in 207.0ms
+Delivered mail 695b271349dac_4ff2d6089565@Dev3.mail (3.3ms)
+Date: Mon, 05 Jan 2026 02:50:59 +0000
+From: tommy.liang300@gmail.com
+To: testuser@example.com
+Message-ID: <695b271349dac_4ff2d6089565@Dev3.mail>
+Subject: Debt Status
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_695b271349670_4ff2d60894c8";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_695b271349670_4ff2d60894c8
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+User#notification_mailer
+
+You have a new debt notification., 
+
+find me in app/views/user_mailer/notification_mailer.text.erb
+
+
+----==_mimepart_695b271349670_4ff2d60894c8
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>User#notification_mailer</h1>
+
+<p>
+  You have a new debt notification.
+</p>
+
+<p>
+ find me in app/views/user_mailer/notification_mailer.html.erb
+</p>
+  </body>
+</html>
+
+----==_mimepart_695b271349670_4ff2d60894c8--
+
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+[ActiveJob] Enqueued EmailDebtMessageJob (Job ID: e25bca81-f2fe-4068-b241-6c0a09dafeef) to Test(default)
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "message_inputs" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[34m            SELECT schemaname || '.' || tablename
+            FROM pg_tables
+            WHERE
+              tablename !~ '_prt_' AND
+              tablename <> 'schema_migrations'
+  AND tablename <> 'ar_internal_metadata'
+ AND
+              schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (0.6ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'messages_test'[0m
+  [1m[35m (11.9ms)[0m  [1m[35mTRUNCATE TABLE "message_inputs", "users" RESTART IDENTITY restrict;[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "message_inputs" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+[waterdrop-882004bf1351] Sync producing of a message to 'Ruby_Message_Service' topic took 0.19 ms
+[waterdrop-882004bf1351] Sync producing of a message to 'Ruby_Message_Service' topic took 0.07 ms
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessageInput Count (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMessageInput Create (1.0ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:51:11.212723"], ["email", "[FILTERED]"], ["message", "True"], ["phone", "+12345678901"], ["sent", "False"], ["updated_at", "2026-01-05 02:51:11.212723"], ["uuid", "375aa8d6-ee95-4f06-8223-70ee04491653"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Invalid Post Data: ["31d80421-e2a9-42b5-89d1-0e6ce65a32a3", "True", "+12345678901", "test@example.com", "Random Secret"]
+  [1m[36mMessageInput Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+[waterdrop-882004bf1351] Sync producing of a message to 'Ruby_Message_Service' topic took 0.1 ms
+[waterdrop-882004bf1351] Sync producing of a message to 'Ruby_Message_Service' topic took 0.24 ms
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessageInput Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMessageInput Create (0.8ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:51:11.220871"], ["email", "[FILTERED]"], ["message", "True"], ["phone", "+12345678901"], ["sent", "False"], ["updated_at", "2026-01-05 02:51:11.220871"], ["uuid", "05e76e0e-aa35-4730-bff8-3873225ec5bd"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Invalid Post Data: ["2fc7a0f3-3682-4c84-bb41-05f91d1e9fe7", "True", "+12345678901", "test@example.com", "Random Secret"]
+  [1m[36mMessageInput Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mMessageInput Create (1.5ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:51:11.230554"], ["email", "[FILTERED]"], ["message", "t"], ["phone", nil], ["sent", "False"], ["updated_at", "2026-01-05 02:51:11.230554"], ["uuid", "28ee12f2-d9c7-41da-ac3d-3107e12887ef"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [c172bde8-5e06-4e9f-8762-49a0aa68cdcc] Performing EmailDebtMessageJob (Job ID: c172bde8-5e06-4e9f-8762-49a0aa68cdcc) from Test(default)
+[ActiveJob] [EmailDebtMessageJob] [c172bde8-5e06-4e9f-8762-49a0aa68cdcc]   [1m[36mMessageInput Load (1.2ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."sent" = $1[0m  [["sent", "False"]]
+[ActiveJob] [EmailDebtMessageJob] [c172bde8-5e06-4e9f-8762-49a0aa68cdcc] 3 False 28ee12f2-d9c7-41da-ac3d-3107e12887ef test@example.com, 
+
+[ActiveJob] [EmailDebtMessageJob] [c172bde8-5e06-4e9f-8762-49a0aa68cdcc]   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [c172bde8-5e06-4e9f-8762-49a0aa68cdcc]   [1m[36mMessageInput Update (1.1ms)[0m  [1m[33mUPDATE "message_inputs" SET "sent" = $1, "updated_at" = $2 WHERE "message_inputs"."id" = $3[0m  [["sent", "True"], ["updated_at", "2026-01-05 02:51:11.236725"], ["id", 3]]
+[ActiveJob] [EmailDebtMessageJob] [c172bde8-5e06-4e9f-8762-49a0aa68cdcc]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [c172bde8-5e06-4e9f-8762-49a0aa68cdcc] Enqueued EmailDebtMessageJob (Job ID: 1382ce79-252a-4d56-8db9-95066011c2b1) to Test(default) at 2026-01-05 02:51:16 UTC
+[ActiveJob] [EmailDebtMessageJob] [c172bde8-5e06-4e9f-8762-49a0aa68cdcc] Performed EmailDebtMessageJob (Job ID: c172bde8-5e06-4e9f-8762-49a0aa68cdcc) from Test(default) in 5.85ms
+  [1m[36mMessageInput Load (0.6ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mMessageInput Create (1.0ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:51:11.246271"], ["email", "[FILTERED]"], ["message", "t"], ["phone", nil], ["sent", "True"], ["updated_at", "2026-01-05 02:51:11.246271"], ["uuid", "6825e5c2-4bf3-46eb-a675-fee11342b768"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [a441044a-815f-4fd6-a03d-86238e425497] Performing EmailDebtMessageJob (Job ID: a441044a-815f-4fd6-a03d-86238e425497) from Test(default)
+[ActiveJob] [EmailDebtMessageJob] [a441044a-815f-4fd6-a03d-86238e425497]   [1m[36mMessageInput Load (1.6ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."sent" = $1[0m  [["sent", "False"]]
+[ActiveJob] [EmailDebtMessageJob] [a441044a-815f-4fd6-a03d-86238e425497] Enqueued EmailDebtMessageJob (Job ID: ace1bd56-9202-4684-a2a3-493354c8c036) to Test(default) at 2026-01-05 02:51:16 UTC
+[ActiveJob] [EmailDebtMessageJob] [a441044a-815f-4fd6-a03d-86238e425497] Performed EmailDebtMessageJob (Job ID: a441044a-815f-4fd6-a03d-86238e425497) from Test(default) in 2.89ms
+  [1m[36mMessageInput Load (1.2ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/notification_mailer.html.erb within layouts/mailer
+  Rendered user_mailer/notification_mailer.html.erb within layouts/mailer (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/notification_mailer.text.erb within layouts/mailer
+  Rendered user_mailer/notification_mailer.text.erb within layouts/mailer (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/mailer.text.erb (Duration: 0.9ms | GC: 0.0ms)
+UserMailer#notification_mailer: processed outbound mail in 234.4ms
+Delivered mail 695b271f7a86e_500dd604362@Dev3.mail (3.8ms)
+Date: Mon, 05 Jan 2026 02:51:11 +0000
+From: tommy.liang300@gmail.com
+To: testuser@example.com
+Message-ID: <695b271f7a86e_500dd604362@Dev3.mail>
+Subject: Debt Status
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_695b271f7496e_500dd604353d";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_695b271f7496e_500dd604353d
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+User#notification_mailer
+
+You have a new debt notification., 
+
+find me in app/views/user_mailer/notification_mailer.text.erb
+
+
+----==_mimepart_695b271f7496e_500dd604353d
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>User#notification_mailer</h1>
+
+<p>
+  You have a new debt notification.
+</p>
+
+<p>
+ find me in app/views/user_mailer/notification_mailer.html.erb
+</p>
+  </body>
+</html>
+
+----==_mimepart_695b271f7496e_500dd604353d--
+
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+[ActiveJob] Enqueued EmailDebtMessageJob (Job ID: 4a724b0b-ff18-4e98-ab6b-6b6551523399) to Test(default)
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "message_inputs" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34m            SELECT schemaname || '.' || tablename
+            FROM pg_tables
+            WHERE
+              tablename !~ '_prt_' AND
+              tablename <> 'schema_migrations'
+  AND tablename <> 'ar_internal_metadata'
+ AND
+              schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'messages_test'[0m
+  [1m[35m (17.0ms)[0m  [1m[35mTRUNCATE TABLE "message_inputs", "users" RESTART IDENTITY restrict;[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "message_inputs" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+[waterdrop-5f0338e3600a] Sync producing of a message to 'Ruby_Message_Service' topic took 0.51 ms
+[waterdrop-5f0338e3600a] Sync producing of a message to 'Ruby_Message_Service' topic took 0.14 ms
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessageInput Count (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMessageInput Create (1.3ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:54:16.406070"], ["email", "[FILTERED]"], ["message", "True"], ["phone", "+12345678901"], ["sent", "False"], ["updated_at", "2026-01-05 02:54:16.406070"], ["uuid", "eb1dfc70-142e-45cb-9dd4-e94480f85f12"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Invalid Post Data: ["ae4d746c-6d00-4e68-a426-180e045c6735", "True", "+12345678901", "test@example.com", "Random Secret"]
+  [1m[36mMessageInput Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+[waterdrop-5f0338e3600a] Sync producing of a message to 'Ruby_Message_Service' topic took 0.19 ms
+[waterdrop-5f0338e3600a] Sync producing of a message to 'Ruby_Message_Service' topic took 0.13 ms
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMessageInput Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMessageInput Create (0.5ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:54:16.417446"], ["email", "[FILTERED]"], ["message", "True"], ["phone", "+12345678901"], ["sent", "False"], ["updated_at", "2026-01-05 02:54:16.417446"], ["uuid", "f6b61eb9-5a09-44ac-97a6-f9fb2789c9b6"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Invalid Post Data: ["8fe70f5f-c452-4de1-8ab2-72e7cc343a6c", "True", "+12345678901", "test@example.com", "Random Secret"]
+  [1m[36mMessageInput Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "message_inputs"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mMessageInput Create (0.7ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:54:16.430943"], ["email", "[FILTERED]"], ["message", "t"], ["phone", nil], ["sent", "False"], ["updated_at", "2026-01-05 02:54:16.430943"], ["uuid", "7da875c6-a68a-424f-a4e2-1513a620360a"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [7cc006a8-8f0c-4518-9593-e0c1398b1c94] Performing EmailDebtMessageJob (Job ID: 7cc006a8-8f0c-4518-9593-e0c1398b1c94) from Test(default)
+[ActiveJob] [EmailDebtMessageJob] [7cc006a8-8f0c-4518-9593-e0c1398b1c94]   [1m[36mMessageInput Load (0.2ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."sent" = $1[0m  [["sent", "False"]]
+[ActiveJob] [EmailDebtMessageJob] [7cc006a8-8f0c-4518-9593-e0c1398b1c94] 3 False 7da875c6-a68a-424f-a4e2-1513a620360a test@example.com, 
+
+[ActiveJob] [EmailDebtMessageJob] [7cc006a8-8f0c-4518-9593-e0c1398b1c94]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [7cc006a8-8f0c-4518-9593-e0c1398b1c94]   [1m[36mMessageInput Update (0.5ms)[0m  [1m[33mUPDATE "message_inputs" SET "sent" = $1, "updated_at" = $2 WHERE "message_inputs"."id" = $3[0m  [["sent", "True"], ["updated_at", "2026-01-05 02:54:16.434571"], ["id", 3]]
+[ActiveJob] [EmailDebtMessageJob] [7cc006a8-8f0c-4518-9593-e0c1398b1c94]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [7cc006a8-8f0c-4518-9593-e0c1398b1c94] Enqueued EmailDebtMessageJob (Job ID: e1b68866-4db9-4106-b067-ff6e042701bc) to Test(default) at 2026-01-05 02:54:21 UTC
+[ActiveJob] [EmailDebtMessageJob] [7cc006a8-8f0c-4518-9593-e0c1398b1c94] Performed EmailDebtMessageJob (Job ID: 7cc006a8-8f0c-4518-9593-e0c1398b1c94) from Test(default) in 3.45ms
+  [1m[36mMessageInput Load (0.2ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mMessageInput Create (0.5ms)[0m  [1m[32mINSERT INTO "message_inputs" ("created_at", "email", "message", "phone", "sent", "updated_at", "uuid") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-01-05 02:54:16.440339"], ["email", "[FILTERED]"], ["message", "t"], ["phone", nil], ["sent", "True"], ["updated_at", "2026-01-05 02:54:16.440339"], ["uuid", "f34df898-ccfa-45ce-89db-b3d31f5bef57"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+[ActiveJob] [EmailDebtMessageJob] [c93388e7-2f37-4c0d-9422-3fa7a2a2c817] Performing EmailDebtMessageJob (Job ID: c93388e7-2f37-4c0d-9422-3fa7a2a2c817) from Test(default)
+[ActiveJob] [EmailDebtMessageJob] [c93388e7-2f37-4c0d-9422-3fa7a2a2c817]   [1m[36mMessageInput Load (0.1ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."sent" = $1[0m  [["sent", "False"]]
+[ActiveJob] [EmailDebtMessageJob] [c93388e7-2f37-4c0d-9422-3fa7a2a2c817] Enqueued EmailDebtMessageJob (Job ID: 46514bd6-fc49-4b1c-934d-4ec33407943c) to Test(default) at 2026-01-05 02:54:21 UTC
+[ActiveJob] [EmailDebtMessageJob] [c93388e7-2f37-4c0d-9422-3fa7a2a2c817] Performed EmailDebtMessageJob (Job ID: c93388e7-2f37-4c0d-9422-3fa7a2a2c817) from Test(default) in 1.17ms
+  [1m[36mMessageInput Load (0.2ms)[0m  [1m[34mSELECT "message_inputs".* FROM "message_inputs" WHERE "message_inputs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/notification_mailer.html.erb within layouts/mailer
+  Rendered user_mailer/notification_mailer.html.erb within layouts/mailer (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/notification_mailer.text.erb within layouts/mailer
+  Rendered user_mailer/notification_mailer.text.erb within layouts/mailer (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/mailer.text.erb (Duration: 0.3ms | GC: 0.0ms)
+UserMailer#notification_mailer: processed outbound mail in 159.7ms
+Delivered mail 695b27d895228_509cd606832b@Dev3.mail (3.5ms)
+Date: Mon, 05 Jan 2026 02:54:16 +0000
+From: tommy.liang300@gmail.com
+To: testuser@example.com
+Message-ID: <695b27d895228_509cd606832b@Dev3.mail>
+Subject: Debt Status
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_695b27d89496e_509cd606824f";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_695b27d89496e_509cd606824f
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+User#notification_mailer
+
+You have a new debt notification., 
+
+find me in app/views/user_mailer/notification_mailer.text.erb
+
+
+----==_mimepart_695b27d89496e_509cd606824f
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>User#notification_mailer</h1>
+
+<p>
+  You have a new debt notification.
+</p>
+
+<p>
+ find me in app/views/user_mailer/notification_mailer.html.erb
+</p>
+  </body>
+</html>
+
+----==_mimepart_695b27d89496e_509cd606824f--
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m

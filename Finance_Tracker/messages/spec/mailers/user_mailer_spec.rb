@@ -1,5 +1,5 @@
 require "rails_helper"
-require_relative "../../config/external_secret_key"
+#require_relative "../../config/external_secret_key"
 
 RSpec.describe UserMailer, type: :mailer do
   before do
@@ -24,7 +24,7 @@ RSpec.describe UserMailer, type: :mailer do
       expect(sent_email.to).to eq([email])
       expect(sent_email.subject).to eq("Debt Status")
       expect(sent_email.body.encoded).to match(message)
-      expect(sent_email.from).to eq([GoogleSecretKey::GOOGLE_EMAIL])
+      expect(sent_email.from).to eq([Rails.application.credentials.dig(:GOOGLE, :GOOGLE_EMAIL)])
     end
   end
 end
