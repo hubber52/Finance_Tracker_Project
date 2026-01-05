@@ -56,8 +56,12 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: messages_test
+  database: <%= ENV.fetch('PG_DATABASE', 'messages_test') %>
+  username: <%= ENV.fetch('PG_USER', Rails.application.credentials.dig(:TEST_DATABASE, :POSTGRES_TEST_USER)) %>
+  password: <%= ENV.fetch('PG_PASSWORD', Rails.application.credentials.dig(:TEST_DATABASE, :POSTGRES_TEST_PASSWORD)) %>
 
+  host: <%= ENV.fetch('PG_HOST', 'localhost') %>
+  port: <%= ENV.fetch('PG_PORT', 5432) %>
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -100,5 +104,5 @@ production:
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: messages_production_cable
+    database: messages_production_cableT
     migrations_paths: db/cable_migrate
