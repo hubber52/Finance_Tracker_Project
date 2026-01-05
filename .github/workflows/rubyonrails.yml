@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults: 
       run:
-        working_directory: ./Finance_Tracker/messages
+        working-directory: ./Finance_Tracker/messages
     services:
       postgres:
         image: postgres:15
