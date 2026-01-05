@@ -25,7 +25,7 @@ jobs:
 
     env:
       RAILS_ENV: test
-      POSTGRES_USER: postgres
+      POSTGRES_USER: postgres4567
       POSTGRES_PASSWORD: postgres
       POSTGRES_DATABASE: messages_test
       DATABASE_URL: postgres://postgres:password@localhost:5432/messages_test
@@ -51,8 +51,8 @@ jobs:
       - name: Install system dependencies
         run: sudo apt-get update && sudo apt-get install -y libpq-dev
         
-      - name: Install gems
-        run: bundle install
+      #- name: Install gems
+       # run: bundle install
 
       # JS deps
       #- name: Install JS dependencies
