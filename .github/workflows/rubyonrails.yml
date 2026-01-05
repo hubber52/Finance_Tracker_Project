@@ -39,7 +39,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version-file: .nvmrc
+          node-version: 22.18.0
           cache: yarn
 
       # System deps
@@ -47,8 +47,8 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y libpq-dev
 
       # JS deps
-      - name: Install JS dependencies
-        run: yarn install --frozen-lockfile
+      #- name: Install JS dependencies
+        #run: yarn install --frozen-lockfile
 
       # DB + tests
       - name: Run tests
