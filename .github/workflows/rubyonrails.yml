@@ -55,5 +55,6 @@ jobs:
         env:
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: |
+          cd ./Finance_Tracker/messages
           bin/rails db:prepare
           bundle exec rspec
