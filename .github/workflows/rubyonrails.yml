@@ -26,8 +26,8 @@ jobs:
     env:
       RAILS_ENV: test
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DATABASE: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DATABASE: messages_test
       DATABASE_URL: postgres://postgres:password@localhost:5432/messages_test
 
     steps:
