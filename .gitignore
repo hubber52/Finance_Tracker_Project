@@ -15,3 +15,5 @@ docker/
 Finance_Tracker/kafka-4.1.0-src/
 secret*
 credentials*
+.env
+./.env
