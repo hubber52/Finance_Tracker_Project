@@ -1,5 +1,5 @@
 class UserRegistrationConsumer < ApplicationConsumer
-  require_relative '../../config/external_secret_key'
+  #require_relative '../../config/external_secret_key'
   def consume
     messages.each do |message|
       registration_data = JSON.parse(message.raw_payload)
