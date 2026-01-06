@@ -17,13 +17,13 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 
 development:
   <<: *default
   database: messages_development
-
+  username: postgres
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
@@ -57,11 +57,19 @@ development:
 test:
   <<: *default
   database: <%= ENV.fetch('POSTGRES_DATABASE', 'messages_test') %>
-  username: <%= ENV.fetch('POSTGRES_USER', Rails.application.credentials.dig(:TEST_DATABASE, :POSTGRES_TEST_USER)) %>
-  password: <%= ENV.fetch('POSTGRES_PASSWORD', Rails.application.credentials.dig(:TEST_DATABASE, :POSTGRES_TEST_PASSWORD)) %>
 
-  host: <%= ENV.fetch('POSTGRES_HOST', 'localhost') %>
-  port: <%= ENV.fetch('POSTGRES_PORT', 5432) %>
+
+  #username: <%= ENV['POSTGRES_USER'] ||
+  #              Rails.application.credentials.dig(:test_database, :postgres_test_user) ||
+  #              raise("POSTGRES_USER not set") %>
+  #password: <%= ENV['POSTGRES_PASSWORD'] || 
+  #              '' ||
+  #              Rails.application.credentials.dig(:TEST_DATABASE, :POSTGRES_TEST_PASSWORD)) ||
+  #              raise("POSTGRES_PASSWORD not set") %>#
+
+  #host: <%= ENV.fetch('POSTGRES_HOST', '127.0.0.1') %>
+  #port: <%= ENV.fetch('POSTGRES_PORT', 5432) %>
+
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -104,5 +112,5 @@ production:
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: messages_production_cableT
+    database: messages_production_cable
     migrations_paths: db/cable_migrate
