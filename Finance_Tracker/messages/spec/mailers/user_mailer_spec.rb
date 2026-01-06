@@ -1,5 +1,4 @@
 require "rails_helper"
-#require_relative "../../config/external_secret_key"
 
 RSpec.describe UserMailer, type: :mailer do
   before do

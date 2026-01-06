@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'spec_helper'
 
 RSpec.describe EmailDebtMessageJob, type: :job do
   let(:message_params) { { email: 'test@example.com', message: 'You have a negative balance' } }
