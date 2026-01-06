@@ -63,8 +63,6 @@ Rails.application.configure do
   enable_starttls_auto: true # Crucial for secure connection
   }
 
-
-
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
