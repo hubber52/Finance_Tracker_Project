@@ -10,6 +10,6 @@ class UserMailer < ApplicationMailer
   def notification_mailer(email, message)
     @message = message
     @email = email
-    mail(to: @email, subject: 'Debt Status')
+    mail(to: @email, subject: 'Debt Status', from: Rails.application.credentials.dig(:GOOGLE, :GOOGLE_EMAIL))
   end
 end
