@@ -47,9 +47,9 @@ Rails.application.configure do
 
   # Set localhost to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
-  config.action_mailer.default_options = { from: Rails.application.credentials.dig(:GOOGLE, :GOOGLE_EMAIL) }
+  config.action_mailer.default_options = { 'tommy.liang300@gmail.com' }
   #SMTP Settings
-  config.action_mailer.delivery_method = :smtp
+
   config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
   port:                 587,
