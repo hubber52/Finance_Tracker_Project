@@ -39,6 +39,32 @@ Rails.application.configure do
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: "example.com" }
 
+  #Allow emails to be sent
+  config.action_mailer.perform_deliveries = true # Set to true to send emails
+
+  # Care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+
+  # Make template changes take effect immediately.
+  config.action_mailer.perform_caching = false
+
+  # Set localhost to be used by links generated in mailer templates.
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.default_options = { from: Rails.application.credentials.dig(:GOOGLE, :GOOGLE_EMAIL) }
+  #SMTP Settings
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'gmail.com', # Or your app's domain
+  user_name:            Rails.application.credentials.dig(:GOOGLE, :GOOGLE_EMAIL), # Your Gmail address
+  password:             Rails.application.credentials.dig(:GOOGLE, :GOOGLE_ACCOUNT_PASSWORD), # Your generated app password
+  authentication:       'plain',
+  enable_starttls_auto: true # Crucial for secure connection
+  }
+
+
+
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
