@@ -11,6 +11,6 @@ class UserMailer < ApplicationMailer
     @message = message
     @email = email
     puts "Line 13 #{Rails.application.credentials.dig(:GOOGLE, :GOOGLE_EMAIL)}"
-    mail(to: @email, subject: 'Debt Status', from: 'tommy.liang300@gmail.com')
+    mail(to: @email, subject: 'Debt Status')
   end
 end
