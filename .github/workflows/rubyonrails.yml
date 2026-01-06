@@ -61,7 +61,7 @@ jobs:
       # DB + tests
       - name: Run tests
         env:
-          DATABASE_URL: postgres://postgres:password@localhost:5432/messages_test
+          #DATABASE_URL: postgres://postgres:password@localhost:5432/messages_test
           RAILS_ENV: test
           POSTGRES_DATABASE: messages_test
           POSTGRES_USERNAME: postgres
