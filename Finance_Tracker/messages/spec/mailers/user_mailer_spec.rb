@@ -23,7 +23,9 @@ RSpec.describe UserMailer, type: :mailer do
       expect(sent_email.to).to eq([email])
       expect(sent_email.subject).to eq("Debt Status")
       expect(sent_email.body.encoded).to match(message)
-      expect(sent_email.from).to eq(['tommy.liang300@gmail.com'])
+      puts "26"
+      puts "This should be an email #{Rails.application.credentials.DEFAULT_EMAIL}"
+      expect(sent_email.from).to eq([Rails.application.credentials.DEFAULT_EMAIL])
     end
   end
 end

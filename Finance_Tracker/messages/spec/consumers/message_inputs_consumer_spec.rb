@@ -1,7 +1,7 @@
 require 'spec_helper'
 require_relative '../../app/consumers/application_consumer'
 require_relative '../../app/consumers/message_inputs_consumer'
-#require_relative '../../config/external_secret_key'
+
 
 RSpec.describe MessageInputsConsumer, type: :consumer do
   # Include the Karafka testing helpers
