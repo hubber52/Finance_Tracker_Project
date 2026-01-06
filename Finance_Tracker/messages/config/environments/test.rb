@@ -50,16 +50,7 @@ Rails.application.configure do
   #config.action_mailer.default_options = { from: 'tommy.liang300@gmail.com' }
   #SMTP Settings
 
-  config.action_mailer.smtp_settings = {
-  address:              'smtp.gmail.com',
-  port:                 587,
-  domain:               'gmail.com', # Or your app's domain
-  user_name:            Rails.application.credentials.dig(:GOOGLE, :GOOGLE_EMAIL), # Your Gmail address
-  password:             Rails.application.credentials.dig(:GOOGLE, :GOOGLE_ACCOUNT_PASSWORD), # Your generated app password
-  authentication:       'plain',
-  enable_starttls_auto: true # Crucial for secure connection
-  }
-
+  DEFAULT_EMAIL = 'tommy.liang300@gmail.com'
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 

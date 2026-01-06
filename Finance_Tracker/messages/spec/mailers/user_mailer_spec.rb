@@ -11,7 +11,6 @@ RSpec.describe UserMailer, type: :mailer do
 
     it "sends the notification email" do
       # Deliver the email
-      puts "14 #{email}"
       UserMailer.notification_mailer(email, message).deliver_now
 
       # Ensure one email was sent
@@ -24,7 +23,7 @@ RSpec.describe UserMailer, type: :mailer do
       expect(sent_email.to).to eq([email])
       expect(sent_email.subject).to eq("Debt Status")
       expect(sent_email.body.encoded).to match(message)
-      expect(sent_email.from).to eq(['tommy.liang300@gmail.com'])
+      expect(sent_email.from).to eq([Rails.application.credentials[:GOOGLE][:GOOGLE_EMAIL]])
     end
   end
 end
