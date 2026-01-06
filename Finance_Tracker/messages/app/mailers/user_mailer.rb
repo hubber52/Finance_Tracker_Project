@@ -10,6 +10,6 @@ class UserMailer < ApplicationMailer
   def notification_mailer(email, message)
     @message = message
     @email = email
-    mail(to: @email, subject: 'Debt Status', from: Rails.application.credentials.DEFAULT_EMAIL)
+    mail(to: @email, subject: 'Debt Status', from: Rails.application.config.email)
   end
 end

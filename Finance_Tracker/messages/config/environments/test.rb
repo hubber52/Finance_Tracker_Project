@@ -50,7 +50,8 @@ Rails.application.configure do
   #config.action_mailer.default_options = { from: 'tommy.liang300@gmail.com' }
   #SMTP Settings
 
-  DEFAULT_EMAIL = 'tommy.liang300@gmail.com'
+  Rails.application.config.email = 'tommy.liang300@gmail.com'
+  
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
