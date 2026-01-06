@@ -11,7 +11,7 @@ RSpec.describe UserMailer, type: :mailer do
 
     it "sends the notification email" do
       # Deliver the email
-      puts "14 #{:email}"
+      puts "14 #{email}"
       UserMailer.notification_mailer(email, message).deliver_now
 
       # Ensure one email was sent
