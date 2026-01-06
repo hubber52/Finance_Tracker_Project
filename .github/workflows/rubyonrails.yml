@@ -13,6 +13,8 @@ jobs:
         image: postgres:15
         env:
           POSTGRES_DATABASE: messages_test
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: admin
         ports:
           - 5432:5432
         options: >-
